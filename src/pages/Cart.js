@@ -3,8 +3,8 @@ import React from 'react';
 function Cart() {
   return (
     <div className="cart-container">
-      <h2><i className="fa fa-shopping-cart"></i>Your Cart</h2>
-      <p>Review the items in your cart before checkout.</p>
+      <h2><i className="fa fa-shopping-cart"></i> Your Cart</h2>
+      <p>Review the items in your cart before proceeding to checkout.</p>
 
       {/* Cart Items */}
       <div className="cart-items-container">
@@ -34,7 +34,7 @@ function Cart() {
 
       {/* Empty Cart Message */}
       <div className="cart-empty-message">
-        <p>Your cart is empty!</p>
+        <p>Your cart is empty! Add some products to start shopping.</p>
       </div>
     </div>
   );
