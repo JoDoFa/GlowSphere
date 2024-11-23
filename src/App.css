@@ -86,95 +86,197 @@ body::before {
 
 /* Home Component Styles */
 /* Main container */
-.home-container {
+/* Importing Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400&family=Roboto:wght@400&display=swap');
+
+/* General Reset */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Navbar Styles */
+.navbar {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
+  background-color: rgba(255, 255, 255, 0.7); /* Glass effect */
+  padding: 15px 30px;
+  border-bottom: 1px solid #e6e6e6;
+  backdrop-filter: blur(10px); /* Glass effect */
+}
+
+.navbar .logo {
+  font-family: 'Playfair Display', serif; /* Playfair Display for logo */
+  font-size: 24px;
+  font-weight: bold;
+  color: #00b8a9;
+}
+
+.navbar nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  font-size: 14px;
+  color: #000000;
+  transition: color 0.3s ease;
+}
+
+.navbar nav a:hover {
+  color: #00b8a9;
+}
+
+/* Hero Section */
+.hero-section {
+  display: flex;
   justify-content: center;
-  height: 100vh;
-  background-color: #f4f7fb; /* Subtle light background */
-  padding: 20px;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+  align-items: center;
+  padding: 60px 80px;
+  background: linear-gradient(to left, #ffffff 50%, #24a6ab 50%); /* Background flipped */
+  min-height: 100vh; /* Full height */
+  box-sizing: border-box;
+  text-align: left; /* Align text to the left */
 }
 
-/* Welcome container */
-.welcome-container {
-  text-align: center;
-  margin-bottom: 40px; /* Increased space for a balanced look */
+.hero-text {
+  flex: 1; /* Let the text take up equal space */
+  max-width: 600px; /* Limit text width */
+  font-family: 'Lato', sans-serif; /* Lato for Hero Text */
 }
 
-.welcome-container h2 {
-  font-size: 2.8rem; /* Larger, more professional font size */
-  color: #333;
-  font-weight: 600; /* Emphasize the welcome text */
-  margin-bottom: 10px;
+.hero-text h1 {
+  font-size: 56px;
+  font-weight: 700;
+  color: #00302a;
+  margin-bottom: 20px;
 }
 
-.welcome-container p {
-  font-size: 1.2rem;
-  color: #666;
-  max-width: 700px; /* Increased width for a better reading experience */
-  margin: 0 auto;
+.hero-text .highlight {
+  color: #eeeeee;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(0, 184, 169, 0.4);
+}
+
+
+
+.hero-text p {
+  font-size: 22px;
+  color: #000000;
+  margin-bottom: 30px;
   line-height: 1.6;
+  font-family: 'Roboto', sans-serif; /* Roboto for paragraph text */
 }
 
-/* Button container for better alignment */
-.button-container {
+.button-group {
   display: flex;
   gap: 20px;
-  flex-wrap: wrap;
-  justify-content: center;
+  justify-content: left;
+  margin-top: 20px;
 }
 
-/* General button style */
-.button-container button {
+.button-group button {
   padding: 15px 30px;
-  font-size: 1.2rem;
-  font-weight: 500;
+  font-size: 18px;
+  color: #ffffff;
+  background-color: #00302a;
   border: none;
+  border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: 'Roboto', sans-serif; /* Roboto for buttons */
+}
+
+.button-group button:hover {
+  background-color: #51ddcd;
+}
+
+/* Hero Image */
+.hero-image {
+  flex: 1; /* Let the image take up equal space */
+  display: flex;
+  justify-content: flex-start; /* Align the image to the left */
+}
+
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Featured Products Section */
+.featured-products {
+  padding: 40px 60px;
+  background-color: #ffffff;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1); /* Floating effect with shadow */
+  margin-top: 40px; /* Space from hero section */
+  z-index: 5;
+  position: relative;
+  text-align: center;
+}
+
+.featured-products h2 {
+  font-family: 'Lato', sans-serif;
+  font-size: 36px;
+  color: #004d40;
+  margin-bottom: 30px;
+}
+
+.product-cards {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.product-card {
+  background-color: #f4f4f4;
   border-radius: 8px;
-  transition: all 0.3s ease;
-  width: 220px;
-  max-width: 90%;
-  margin: 10px 0; /* Ensuring some space between buttons */
+  padding: 20px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1); /* Floating effect for each card */
+  transition: transform 0.3s ease;
+  width: 280px;
+  text-align: center;
 }
 
-/* Shop Now Button */
-.shop-now-btn {
-  background-color: #007bff; /* Adjusted blue */
+.product-card:hover {
+  transform: translateY(-10px); /* Elevate the card on hover */
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.product-card h3 {
+  font-family: 'Lato', sans-serif;
+  font-size: 22px;
+  color: #004d40;
+  margin-top: 15px;
+}
+
+.product-card p {
+  font-family: 'Roboto', sans-serif;
+  color: #555;
+  margin: 10px 0;
+}
+
+.product-card button {
+  background-color: #00b8a9;
+  border: none;
   color: white;
-  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2); /* Soft shadow for depth */
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  transition: background-color 0.3s ease;
 }
 
-.shop-now-btn:hover {
-  background-color: #0056b3;
-  transform: translateY(-2px); /* Subtle hover effect */
+.product-card button:hover {
+  background-color: #00796b;
 }
 
-/* Explore Categories Button */
-.explore-btn {
-  background-color: #ffbf00; /* Warm gold */
-  color: #333;
-  box-shadow: 0 4px 8px rgba(255, 191, 0, 0.2); /* Soft shadow */
-}
-
-.explore-btn:hover {
-  background-color: #e6a800;
-  transform: translateY(-2px); /* Subtle hover effect */
-}
-
-/* My Account Button */
-.account-btn {
-  background-color: #28a745;
-  color: white;
-  box-shadow: 0 4px 8px rgba(40, 167, 69, 0.2); /* Soft shadow */
-}
-
-.account-btn:hover {
-  background-color: #218838;
-  transform: translateY(-2px); /* Subtle hover effect */
-}
 
 
 /* Products Component Styles */
