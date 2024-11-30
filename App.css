@@ -278,19 +278,19 @@ body, html {
 }
 
 .product-card {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.6), rgba(0, 170, 255, 0.6)); /* White to custom light blue with opacity */
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.6), rgba(0, 170, 255, 0.6)); /* Gradient background for each card */
   border-radius: 8px;
   padding: 20px;
-  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1); /* Softer floating effect */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
-  width: 280px; /* Fixed width for consistent size */
-  height: 450px; /* Fixed height for all cards */
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 280px;
+  height: 450px;
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Distribute content evenly */
-  backdrop-filter: blur(10px); /* Glass effect with blur */
-  -webkit-backdrop-filter: blur(10px); /* For Safari support */
+  justify-content: space-between;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .product-card:hover {
@@ -364,6 +364,24 @@ body, html {
   margin: 50px auto;
   padding: 20px;
   font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(0, 170, 255, 0.2)); /* A soft gradient background */
+  border-radius: 12px; /* Optional rounded corners */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 4px 10px rgba(0, 0, 0, 0.05);
+  background-color: #a2d6ee; 
+  position: relative; /* To add layers or background images if needed */
+  overflow: hidden; /* Hide anything that goes beyond the borders */
+}
+
+.products-container:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("https://www.olanskydermatology.com/wp-content/uploads/2023/08/skincare.jpg") center/cover no-repeat; /* Replace with your background image */
+  opacity: 1; /* Adjust the opacity of the background image */
+  z-index: -1; /* To place the image behind the container */
 }
 
 h2 {
@@ -490,7 +508,7 @@ button:hover {
   }
 
   .product-card {
-    width: 280%;
+    width: 90%;
     margin-bottom: 20px;
   }
 
@@ -504,39 +522,62 @@ button:hover {
 
 /* Cart Component Styles */
 /* Container for the entire cart page */
+/* Overall Cart Container with soft and clean aesthetic */
 .cart-container {
   width: 100%;
   max-width: 900px;
   margin: 0 auto;
-  padding: 30px;
+  padding: 40px;
   background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  font-family: 'Arial', sans-serif;
+  border-radius: 20px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  font-family: 'Lora', serif;
+  background: linear-gradient(135deg, #f0f0f0 0%, #fafafa 100%);
+  transform: scale(1);
+  transition: transform 0.3s ease;
+}
+
+.cart-container:hover {
+  transform: scale(1.02); /* Gentle zoom effect on hover */
 }
 
 /* Cart Page Title */
 .cart-container h2 {
   text-align: center;
-  font-size: 2.5rem;
-  color: #333;
-  margin-bottom: 20px;
-  font-weight: 600;
+  font-size: 3rem;
+  color: #2c3e50;
+  margin-bottom: 30px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.cart-container h2:hover {
+  color: #8e44ad; /* Purple hover effect */
+  transform: translateY(-5px); /* Subtle lift on hover */
 }
 
 /* Paragraph text for instructions or descriptions */
 .cart-container p {
   text-align: center;
   font-size: 1.1rem;
-  color: #777;
-  margin-bottom: 30px;
+  color: #7f8c8d;
+  margin-bottom: 40px;
+  font-weight: 400;
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
 }
 
-/* Cart items container with padding and border */
+.cart-container p:hover {
+  opacity: 1; /* Subtle emphasis on hover */
+}
+
+/* Cart items container with soft, subtle borders */
 .cart-items-container {
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   padding-bottom: 20px;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e4e4e4;
 }
 
 /* Individual Cart Item Style */
@@ -544,35 +585,49 @@ button:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 0;
-  border-bottom: 1px solid #f0f0f0;
+  padding: 20px 0;
+  border-bottom: 1px solid #e6e6e6;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cart-item:hover {
+  background-color: #f9f9f9;
+  transform: translateX(5px); /* Subtle slide effect for hover */
 }
 
 .cart-item h3 {
   font-size: 1.6rem;
-  color: #333;
+  color: #34495e;
   font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.cart-item h3:hover {
+  color: #8e44ad; /* Change color to match theme */
 }
 
 .cart-item p {
   font-size: 1.2rem;
-  color: #555;
+  color: #7f8c8d;
 }
 
 .cart-item button {
-  padding: 8px 16px;
-  background-color: #e74c3c;
+  padding: 12px 22px;
+  background-color: #8e44ad;
   color: #fff;
   border: none;
-  border-radius: 6px;
-  font-size: 1rem;
+  border-radius: 12px;
+  font-size: 1.1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .cart-item button:hover {
-  background-color: #c0392b;
+  background-color: #013144;
   transform: scale(1.05);
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
 }
 
 /* Cart Summary Section */
@@ -580,20 +635,25 @@ button:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 30px;
-  border-top: 2px solid #f0f0f0;
+  margin-top: 40px;
+  border-top: 2px solid #e0e0e0;
   padding-top: 20px;
+  transition: transform 0.3s ease;
+}
+
+.cart-summary:hover {
+  transform: translateY(-5px); /* Smooth lift for summary */
 }
 
 .cart-summary h3 {
-  font-size: 1.8rem;
-  color: #333;
+  font-size: 2rem;
+  color: #2c3e50;
   font-weight: 600;
 }
 
 .cart-summary p {
-  font-size: 1.4rem;
-  color: #333;
+  font-size: 1.5rem;
+  color: #7f8c8d;
   font-weight: 500;
 }
 
@@ -601,18 +661,19 @@ button:hover {
 .cart-buttons-container {
   display: flex;
   justify-content: space-between;
-  margin-top: 40px;
+  margin-top: 50px;
 }
 
 .cart-buttons-container button {
-  padding: 15px 30px;
+  padding: 18px 30px;
   font-size: 1.2rem;
   font-weight: 600;
-  border-radius: 6px;
+  border-radius: 12px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
   width: 48%;
   border: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .proceed-btn {
@@ -623,6 +684,7 @@ button:hover {
 .proceed-btn:hover {
   background-color: #2980b9;
   transform: scale(1.05);
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
 }
 
 .clear-cart-btn {
@@ -633,6 +695,7 @@ button:hover {
 .clear-cart-btn:hover {
   background-color: #7f8c8d;
   transform: scale(1.05);
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
 }
 
 /* Empty Cart Message */
@@ -643,9 +706,10 @@ button:hover {
 }
 
 .cart-empty-message p {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   color: #e74c3c;
   font-weight: 600;
+  text-transform: uppercase;
 }
 
 /* Show empty cart message if cart is empty */
@@ -676,6 +740,7 @@ button:hover {
     padding: 12px 20px;
   }
 }
+
 
 /* Account Component Styles */
 /* Container for the Account page */
